@@ -5,4 +5,4 @@ export const GET_CATEGORIES = `${process.env.REACT_APP_API_URL}/properties/categ
 // API POSTS
 export const GET_POSTS = `${process.env.REACT_APP_API_URL}/posts/published`;
 export const GET_DETAIL_POST = `${process.env.REACT_APP_API_URL}/posts/detail`;
-export const GET_BY_CATEGORY = `${process.env.REACT_APP_API_URL}/category`;
+export const GET_BY_CATEGORY = `${process.env.REACT_APP_API_URL}/posts/category`;

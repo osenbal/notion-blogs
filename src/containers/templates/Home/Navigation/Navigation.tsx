@@ -15,7 +15,10 @@ function Navigation({ categories }: any) {
           {categories
             ? categories.map((category: any) => (
                 <li key={category.id} className="navigation__item">
-                  <NavLink className="fw-bold" to={`/${category.name}`}>
+                  <NavLink
+                    className="fw-bold"
+                    to={`/category/${category.name}`}
+                  >
                     {category.name}
                   </NavLink>
                 </li>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Jumbotron from '../../../components/Jumbotron/Jumbotron';
 import Navigation from './Navigation/Navigation';
 import { Outlet } from 'react-router-dom';
 import { GET_CATEGORIES } from '../../../api/constant';
@@ -38,6 +39,7 @@ function Home() {
 
   return (
     <>
+      <Jumbotron />
       <main id="home">
         <Navigation categories={categories} />
 

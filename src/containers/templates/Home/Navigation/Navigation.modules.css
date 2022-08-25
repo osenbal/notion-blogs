@@ -1,6 +1,9 @@
 .navigation__category {
   padding: 0;
   list-style: none;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
 }
 
 .navigation__item a {
@@ -23,4 +26,11 @@
   font-size: 20px;
   text-decoration: underline;
   text-underline-offset: 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .navigation__category::-webkit-scrollbar {
+    width: 0; /* Remove scrollbar space */
+    background: transparent; /* Optional: just make scrollbar invisible */
+  }
 }

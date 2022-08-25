@@ -1,0 +1,29 @@
+#posts {
+  margin-top: 40px;
+}
+
+.post__card {
+  animation: fade-in 1s ease-in;
+}
+.post__date {
+  color: var(--color-app-dark);
+  font-weight: 600;
+}
+.post__title {
+  color: var(--color-app-red);
+  font-weight: 600;
+}
+.post__description {
+  color: var(--color-app-dark);
+}
+.post__link-detail {
+  color: var(--color-app-red);
+  text-underline-offset: 4px;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 768px) {
+  #posts {
+    margin-top: 124px;
+  }
+}
