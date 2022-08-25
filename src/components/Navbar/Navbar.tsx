@@ -24,13 +24,15 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto  mb-2 mb-lg-0">
               <li className="nav-item">
-                <NavLink
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="nav-link"
                   aria-current="page"
-                  to="/portfolio"
+                  href="https://iqballl.netlify.app"
                 >
                   PORTFOLIO
-                </NavLink>
+                </a>
               </li>
               <li className="nav-item">
                 <NavLink className="nav-link" to={'/'}>

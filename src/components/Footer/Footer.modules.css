@@ -1,0 +1,9 @@
+footer {
+  background-color: var(--color-app-dark);
+  margin-top: 300px;
+  padding: 16px 0;
+}
+
+footer p {
+  color: #ffffff;
+}

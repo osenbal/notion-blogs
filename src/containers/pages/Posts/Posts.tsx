@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { GET_POSTS, GET_BY_CATEGORY } from '../../../api/constant';
 import PostCard from './PostCard/PostCard';
@@ -11,8 +11,6 @@ function Posts() {
   const [isLoadMore, setIsLoadMore] = useState(false);
   const [pageNumber, setPageNumber] = useState(1);
   const [maxPage, setMaxPage] = useState(1);
-
-  const triggeredRef = useRef(null);
 
   const categoryParams = useParams()?.category;
 
@@ -130,7 +128,7 @@ function Posts() {
 
   const renderPosts =
     posts?.length !== 0 ? (
-      posts.map((post: any) => <PostCard key={post.id} post={post} />)
+      posts?.map((post: any) => <PostCard key={post.id} post={post} />)
     ) : (
       <div className="w-100">
         <p className="text-center fs-3 fw-semibold">No Post Found</p>
@@ -146,7 +144,7 @@ function Posts() {
         </div>
         {posts?.length !== 0 && posts.length < maxPage && !categoryParams ? (
           <button
-            disabled={isLoading}
+            disabled={isLoadMore}
             type="button"
             onClick={loadMore}
             className="btn btn-dark mx-auto d-block mt-5"
@@ -155,7 +153,6 @@ function Posts() {
           </button>
         ) : null}
       </section>
-      <div ref={triggeredRef} className="triggered__posts" />
     </>
   );
 }
