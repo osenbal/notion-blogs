@@ -1,12 +1,13 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { useParams } from 'react-router-dom';
-import { GET_POSTS, GET_BY_CATEGORY } from '../../../api/constant';
 import PostCard from './PostCard/PostCard';
 import PostCardLoading from './PostCard/PostCardLoading';
+import { useParams } from 'react-router-dom';
+import { GET_POSTS, GET_BY_CATEGORY } from '../../../api/constant';
+import { Post } from '../../../type.d/type';
 import './Posts.css';
 
 function Posts() {
-  const [posts, setPosts] = useState<any[]>([]);
+  const [posts, setPosts] = useState<Post[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isLoadMore, setIsLoadMore] = useState(false);
   const [pageNumber, setPageNumber] = useState(1);
@@ -14,7 +15,7 @@ function Posts() {
 
   const categoryParams = useParams()?.category;
 
-  const LIMIT_POSTS = 6;
+  const LIMIT_POSTS = 6; // Limit post per page
 
   const getPostsFirstPage = (controller: any) => {
     fetch(`${GET_POSTS}?page=${1}&limit=${LIMIT_POSTS}`, {
@@ -29,6 +30,7 @@ function Posts() {
       .then((data) => {
         setMaxPage(data?.data?.totalItems);
         setPosts(data?.data?.results);
+        console.log(data?.data);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -98,6 +100,7 @@ function Posts() {
     setPageNumber((prev) => prev + 1);
   };
 
+  // Component First Render Get Post Page 1 with limit 6 post
   useEffect(() => {
     if (pageNumber > 1) {
       const controller = new AbortController();
