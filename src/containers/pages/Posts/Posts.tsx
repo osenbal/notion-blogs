@@ -30,7 +30,6 @@ function Posts() {
       .then((data) => {
         setMaxPage(data?.data?.totalItems);
         setPosts(data?.data?.results);
-        console.log(data?.data);
         setIsLoading(false);
       })
       .catch((error) => {
