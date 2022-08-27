@@ -27,18 +27,6 @@
   animation: loading-background 1s infinite;
 }
 
-@keyframes loading-background {
-  0% {
-    background-color: #ffffff;
-  }
-  50% {
-    background-color: #eeeeee;
-  }
-  100% {
-    background-color: #ffffff;
-  }
-}
-
 @media screen and (min-width: 768px) {
   .post__image-loading {
     height: 406.13px;
