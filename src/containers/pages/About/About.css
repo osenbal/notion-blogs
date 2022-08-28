@@ -1,0 +1,10 @@
+#about {
+  margin-top: 80px;
+}
+
+.about__image {
+  max-height: 300px;
+  max-width: 400px !important;
+  border-radius: 32px;
+  object-fit: cover;
+}
