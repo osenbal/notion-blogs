@@ -6,6 +6,7 @@ import './Contact.css';
 
 function Contact() {
   const fromRef = useRef<HTMLFormElement | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState<string>('');
   const [name, setName] = useState<string>('');
   const [message, setMessage] = useState<string>('');
@@ -14,10 +15,23 @@ function Contact() {
   const [popupStatus, setPopupStatus] = useState(false);
   const [popupStatusError, setPopupStatusError] = useState(false);
 
+  const resetState = () => {
+    setEmail('');
+    setName('');
+    setMessage('');
+  };
+
   const handleSubmit = (e: any) => {
     e.preventDefault();
 
-    if (email === '' || name === '' || message === '') {
+    if (
+      email === '' ||
+      name === '' ||
+      message === '' ||
+      !email ||
+      !name ||
+      !message
+    ) {
       return;
     }
 
@@ -27,6 +41,7 @@ function Contact() {
       message,
     };
 
+    setIsLoading(true);
     emailjs
       .send(
         `${process.env.REACT_APP_EMAIL_SERVICE_ID}`,
@@ -37,8 +52,10 @@ function Contact() {
       .then(
         () => {
           fromRef.current?.reset();
+          resetState();
           setPopupMessage('Message sent successfully');
           setPopupStatus(true);
+          setIsLoading(false);
           setInterval(() => {
             setPopupStatus(false);
           }, 5000);
@@ -46,6 +63,7 @@ function Contact() {
         () => {
           setPopupMessageError('Sorry, Failed to send message');
           setPopupStatusError(true);
+          setIsLoading(false);
           setInterval(() => {
             setPopupStatusError(false);
           }, 5000);
@@ -131,6 +149,7 @@ function Contact() {
                 />
 
                 <button
+                  disabled={isLoading}
                   className="btn btn-secondary d-block w-100 mt-3"
                   type="submit"
                   onClick={handleSubmit}
