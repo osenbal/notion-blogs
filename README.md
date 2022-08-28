@@ -30,6 +30,7 @@ This project aims to provide views of the notion api:
 - jquery
 - popper.js
 - react-router-dom
+- emailjs
 
   <br />
 
@@ -39,6 +40,7 @@ This project aims to provide views of the notion api:
 
 ```
 Add URL root API your notion api (see file .env.example for variable)
+Add Emailjs Service key in your .env file (see file .env.example for example variable, just copy and change the value)
 
 notion api backend
 : https://github.com/osenbal/notion-api.

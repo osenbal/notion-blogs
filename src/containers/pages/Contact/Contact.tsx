@@ -69,6 +69,7 @@ function Contact() {
       ) : (
         <></>
       )}
+
       <main id="contact">
         <div className="container">
           <div className="row justify-content-center align-items-center">
