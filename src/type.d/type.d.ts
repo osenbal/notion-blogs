@@ -8,6 +8,10 @@ export interface CategoryPost {
   name: string;
 }
 
+interface URL {
+  url: string;
+}
+
 export interface Post {
   id: string;
   categories: Array | null;
@@ -15,7 +19,7 @@ export interface Post {
   createdAt: string;
   createdBy: Array;
   deletedAt: string | null;
-  featuredImage: Object;
+  featuredImage: URL | null;
   isArchived: boolean;
   title: string;
   description: string | null;

@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Post } from '../../../../type.d/type';
 import ImageFeature1 from '../../../../assets/images/thumbs/thumb-blog-1.png';
 import ImageFeature2 from '../../../../assets/images/thumbs/thumb-blog.png';
 
-function PostCard({ post }: { post: any }) {
+function PostCard({ post }: { post: Post }) {
   function formatDate(date: any) {
     const dateObj = new Date(date);
     const result = dateObj.toLocaleDateString('en-US', {
@@ -36,12 +37,33 @@ function PostCard({ post }: { post: any }) {
           alt="featured post"
         />
         <div className="card-body p-0 pt-3">
+          {post.categories && (
+            <div className="d-flex gap-2">
+              {post?.categories?.map((category: any, index: number) => (
+                <p
+                  style={{
+                    backgroundColor: `${category?.color}`,
+                    borderRadius: `4px`,
+                    padding: `0 8px`,
+                  }}
+                  key={index}
+                >
+                  {category?.name}
+                </p>
+              ))}
+            </div>
+          )}
+
           <p className="card-text post__date">
             {formatDate(post?.createdAt).toString()}
           </p>
           <p className="card-text fs-4 post__title">{post?.title}</p>
           <p className="card-text post__description">{post?.description}</p>
-          <Link className="post__link-detail" to={`/post/${post?.id}`}>
+          <Link
+            className="post__link-detail"
+            to={`/post/${post?.id}`}
+            replace={true}
+          >
             READ MORE
           </Link>
         </div>

@@ -39,6 +39,7 @@ function DetailPost() {
       controller.abort();
     };
   }, [id]);
+
   return (
     <>
       <main id="detail-post">
